@@ -1,0 +1,35 @@
+function [ image ] = newtonbasins(roots, range)
+    color = [1,0,0; 0,1,0; 0,0,1; 1,1,0; 1,1,1];
+    imgs = 300;
+    image=zeros(imgs,imgs,3); %initialize
+    for iter1=1:imgs
+        for iter2=1:imgs
+            point = (range(1) + iter1*(range(2)-range(1))/imgs + i*(range(3) + iter2*(range(4)-range(3))/imgs) );
+           [r,c] = newton(roots, point);
+            if(c ~= Inf)
+             %%c
+             image(imgs+1-iter2,iter1,:) = color(c,:);
+             %%color(c)
+            end
+        end
+    end
+    for iter=1:size(roots,2)
+        r = imgs*(imag(roots(iter))-range(3))/(range(4)-range(3))
+        c = 200*(real(roots(iter))-range(1))/(range(2)-range(1))
+        for iter2=-2:2
+            for iter3=-2:2
+                image(max(1,iter2+r),max(1,iter3+c),:) = color(5);
+            end
+        end
+    end
+    
+                
+    
+                
+            
+%UNTITLED Summary of this function goes here
+%   Detailed explanation goes here
+
+
+end
+
