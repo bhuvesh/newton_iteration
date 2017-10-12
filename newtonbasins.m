@@ -1,6 +1,6 @@
 function [ image ] = newtonbasins(roots, range)
     color = [1,0,0; 0,1,0; 0,0,1; 1,1,0; 0 1 1 ;  1,0,1; 0.6,0.3,0.4; 0.2,1,0.6; 1,1,1];
-    imgs = 300;
+    imgs = 800;
     image=zeros(imgs,imgs,3); %initialize
     for iter1=1:imgs
         for iter2=1:imgs
@@ -18,7 +18,7 @@ function [ image ] = newtonbasins(roots, range)
         c = floor(imgs*(real(roots(iter))-range(1))/(range(2)-range(1)))
         for iter2=-5:5
             for iter3=-5:5
-                image(min(imgs,max(1,iter2+r)),min(imgs,max(1,iter3+c)),:) = [1,1,1];
+                image(imgs+1-min(imgs,max(1,iter2+r)),min(imgs,max(1,iter3+c)),:) = [1,1,1];
             end
         end
     end
