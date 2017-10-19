@@ -14,24 +14,14 @@ function [ image ] = newtonbasins(roots, range2)
             end
         end
     end
-    imshow(image);
     
-    center = cartoimg(0,range2,imgs);
-    rootp = cartoimg(roots,range2,imgs);
-    rootr = imgabs(roots,range2,imgs);
+    center = cartoimg(0,range2,imgs)
+    rootp = cartoimg(roots,range2,imgs)
+    rootr = imgabs(roots,range2,imgs)
+    for iter=1:size(roots,2)
+        rectangle('Position',[center(1) - r, (it
+    end
     
-    for iter=1:size(roots,2)
-        rectangle('Position',[center(1) - rootr(iter), center(2)-rootr(iter),2*rootr(iter),2*rootr(iter)],'Curvature',[1,1],'Facecolor',[1 1 1 0.3], 'LineWidth',1);
-    end
-    for iter=1:size(roots,2)
-        rectangle('Position',[center(1) - rootr(iter), center(2)-rootr(iter),2*rootr(iter),2*rootr(iter)],'Curvature',[1,1], 'LineWidth',2);
-    end
-    marksize = 4;
-    for iter=1:size(roots,2)
-        rectangle('Position',[rootp(iter,1) - marksize,rootp(iter,2) - marksize,2*marksize,2*marksize],'Curvature',[1,1], 'LineWidth',1,'Facecolor',[1 1 1],'EdgeColor',[0 0 0]);
-    end
-    f = getframe(gca);
-    image = frame2im(f);
                 
     
                 
