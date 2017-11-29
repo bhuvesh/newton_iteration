@@ -1,5 +1,5 @@
 function [steps] = newtonline(roots,init)
-eps = 1.0e-3;    
+eps = 1.0e-7;    
 z1 = init+5;
 z2 = init;
 cnt = 1;
